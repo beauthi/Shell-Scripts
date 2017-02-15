@@ -35,7 +35,7 @@ recurse() {
     elif [ -f "$i" ]; then
       ext="${i##*.}"
       if [ "$ext" = "cc" ] || [ "$ext" = "c" ] || [ "$ext" = "hh" ] ||
-      [ "$ext" = "h" ] || [ "$ext" = "hxx" ] || [ "$ext" = "yy" ]; then
+      [ "$ext" = "h" ] || [ "$ext" = "hxx" ]; then
         read_lines $i
       fi
     fi
