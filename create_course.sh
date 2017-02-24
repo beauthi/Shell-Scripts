@@ -14,7 +14,7 @@ fi
 touch $1
 echo "SUJET : $1 - " > $1
 echo "" >> $1
-date >> $1
+TZ='Europe/France' date >> $1
 echo "" >> $1
 echo "PLAN : " >> $1
 echo "" >> $1
