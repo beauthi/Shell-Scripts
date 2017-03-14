@@ -1,5 +1,12 @@
 #! /bin/sh
 
+# idea : check for spaces after a "for", "if", or "while"
+# idea : check for spaces at the end of lines
+
+alias lines="python ~/afs/Shell-Scripts/lines_number.py"
+alias fw="python ~/afs/Shell-Scripts/cs-for-while.py"
+alias spaces="python ~/afs/Shell-Scripts/cs-ending-spaces.py"
+
 GREEN="\033[92m"
 GRAY="\033[90m"
 RED="\033[91m"
@@ -39,9 +46,9 @@ recurse() {
       if [ "$ext" = "cc" ] || [ "$ext" = "c" ] || [ "$ext" = "hh" ] ||
       [ "$ext" = "h" ] || [ "$ext" = "hxx" ]; then
         read_lines $i
-		python cs-ending-spaces.py $i
-		python cs-for-while.py $i
-		lines_number.py $i
+		    spaces $i
+		    fw $i
+		    lines $i
       fi
     fi
  done
@@ -51,7 +58,7 @@ if [ -d $1 ]; then
   recurse $1
 else
   read_lines $1
-  python cs-ending-spaces.py $1
-  python cs-for-while.py $1
-  lines_number.py $1
+  spaces $1
+  fw $1
+  lines $1
 fi
